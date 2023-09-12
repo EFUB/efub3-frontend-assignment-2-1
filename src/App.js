@@ -1,45 +1,18 @@
 import React from "react";
-import { createStore } from "redux";
-import { Provider, useSelector, useDispatch } from "react-redux";
-import { configureStore, createSlice } from "@reduxjs/toolkit";
-import store from "./store";
-import { counterSlice, asyncUpFetch } from "./counterSlice";
+import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
-import { persistStore } from "redux-persist";
-
-let persistor = persistStore(store);
-
-function Counter() {
-  const count = useSelector((state) => state.counter.value);
-  const dispatch = useDispatch();
-
-  const status = useSelector((state) => {
-    return state.counter.status;
-  });
-
-  return (
-    <div>
-      <button
-        onClick={() => {
-          dispatch(asyncUpFetch());
-        }}
-      >
-        +async fetch
-      </button>
-      {count} | {status}
-    </div>
-  );
-}
+import { store, persistor } from "./store"; 
+import TodoList from "./TodoList";
 
 function App() {
   return (
-    <div>
-      <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-          <Counter></Counter>
-        </PersistGate>
-      </Provider>
-    </div>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <div className="App">
+          <TodoList />
+        </div>
+      </PersistGate>
+    </Provider>
   );
 }
 

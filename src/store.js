@@ -1,24 +1,25 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import counterSlice from "./counterSlice";
-import storageSession from "redux-persist/lib/storage/session";
-
-import { persistReducer } from "redux-persist";
+import todosReducer from "./todosSlice";
+import filterReducer from "./filterSlice";
 import storage from "redux-persist/lib/storage";
+import { persistReducer, persistStore } from "redux-persist";
 
 const reducers = combineReducers({
-  counter: counterSlice.reducer,
+  todos: todosReducer,
+  filters: filterReducer,
 });
 
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["counter"],
+  whitelist: ["todos", "filters"],
 };
-
 const persistedReducer = persistReducer(persistConfig, reducers);
 
 const store = configureStore({
   reducer: persistedReducer,
 });
 
-export default store;
+const persistor = persistStore(store);
+
+export { store, persistor };
