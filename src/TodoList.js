@@ -4,6 +4,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { addTodo, toggleTodo, removeTodo } from "./todosSlice";
 import { setFilter } from "./filterSlice";
 import FilterDropdown from "./FilterDropdown";
+import TextField from "@mui/material/TextField";
+import SendIcon from "@mui/icons-material/Send";
+import Button from "@mui/material/Button";
+import AddIcon from "@mui/icons-material/Add";
+import IconButton from "@mui/material/IconButton";
+import DeleteIcon from "@mui/icons-material/Delete";
+import Checkbox from "@mui/material/Checkbox";
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+
+import { Typography } from "@mui/material";
 
 const TodoList = () => {
   const [newTodo, setNewTodo] = useState("");
@@ -35,21 +46,57 @@ const TodoList = () => {
   };
   return (
     <div>
-      <h1>Todo List</h1>
+      <Typography
+        variant="h5"
+        sx={{
+          fontFamily: "Arial",
+          fontWeight: 700,
+          textDecoration: "none",
+          mb: 3,
+          mt: 4,
+        }}
+      >
+        오늘의 할 일은?
+      </Typography>
       <div>
-        <input
+        <TextField
+          sx={{ mb: 5 }}
+          label="todo"
+          variant="standard"
           type="text"
           placeholder="Add a new todo"
           value={newTodo}
           onChange={(e) => setNewTodo(e.target.value)}
         />
-        <button onClick={handleAddTodo}>Add</button>
+        <IconButton aria-label="delete" size="large" onClick={handleAddTodo}>
+          <AddIcon fontSize="inherit" />
+        </IconButton>
       </div>
-      <FilterDropdown /> 
-      <ul>
-        {filteredTodos.map((todo) => (
-          <li key={todo.id}>
-            <input
+      <FilterDropdown />
+      <ul style={{ listStyle: "none" }}>
+        <FormGroup>
+          {filteredTodos.map((todo) => (
+            <li key={todo.id}>
+              <FormControlLabel
+                control={<Checkbox />}
+                checked={todo.completed}
+                onChange={() => dispatch(toggleTodo(todo.id))}
+              />
+              <span
+                style={{
+                  textDecoration: todo.completed ? "line-through" : "none",
+                }}
+              >
+                {todo.text}
+              </span>
+              <IconButton
+                aria-label="delete"
+                size="large"
+                onClick={() => dispatch(removeTodo(todo.id))}
+              >
+                <DeleteIcon fontSize="small" />
+              </IconButton>
+              {/* <input
               type="checkbox"
               checked={todo.completed}
               onChange={() => dispatch(toggleTodo(todo.id))}
@@ -61,11 +108,16 @@ const TodoList = () => {
             >
               {todo.text}
             </span>
-            <button onClick={() => dispatch(removeTodo(todo.id))}>
-              Remove
-            </button>
-          </li>
-        ))}
+            <IconButton
+              aria-label="delete"
+              size="large"
+              onClick={() => dispatch(removeTodo(todo.id))}
+            >
+              <DeleteIcon fontSize="small" />
+            </IconButton> */}
+            </li>
+          ))}
+        </FormGroup>
       </ul>
     </div>
   );

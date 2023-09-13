@@ -3,8 +3,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { store, persistor } from "./store";
-import TodoList from "./TodoList";
+import TodoPage from "./TodoPage";
 import StartPage from "./StartPage";
+import Header from "./Header";
+import "./App.css";
 
 function App() {
   return (
@@ -12,9 +14,10 @@ function App() {
       <PersistGate loading={null} persistor={persistor}>
         <BrowserRouter>
           <div className="App">
+            <Header />
             <Routes>
               <Route path="/" element={<StartPage />} />
-              <Route path="/todo" element={<TodoList />} />
+              <Route path="/todo" element={<TodoPage />} />
             </Routes>
           </div>
         </BrowserRouter>
