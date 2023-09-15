@@ -36,7 +36,7 @@ const Cart = () => {
 };
 
 const Btn = styled.button`
-  width: 358px;
+  width: 343px;
   height: 60px;
   color: var(--white, #fff);
   text-align: center;
