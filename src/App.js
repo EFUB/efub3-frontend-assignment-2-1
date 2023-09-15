@@ -2,10 +2,10 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
-import { store, persistor } from "./store";
-import TodoPage from "./TodoPage";
-import StartPage from "./StartPage";
-import Header from "./Header";
+import { store, persistor } from "./redux/store";
+import TodoPage from "./pages/TodoPage";
+import StartPage from "./pages/StartPage";
+import Header from "./components/Header";
 import "./App.css";
 
 function App() {

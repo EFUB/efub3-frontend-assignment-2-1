@@ -1,6 +1,6 @@
 import React from "react";
-import Template from "./Template";
-import TodoList from "./TodoList";
+import Template from "../components/Template";
+import TodoList from "../components/TodoList";
 
 function TodoPage() {
   return (

@@ -1,12 +1,10 @@
 // TodoList.js
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addTodo, toggleTodo, removeTodo } from "./todosSlice";
-import { setFilter } from "./filterSlice";
+import { addTodo, toggleTodo, removeTodo } from "../redux/todosSlice";
+import { setFilter } from "../redux/filterSlice";
 import FilterDropdown from "./FilterDropdown";
 import TextField from "@mui/material/TextField";
-import SendIcon from "@mui/icons-material/Send";
-import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
