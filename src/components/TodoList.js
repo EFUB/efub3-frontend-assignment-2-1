@@ -42,7 +42,7 @@ const TodoList = () => {
   const handleSetFilter = (filter) => {
     dispatch(setFilter(filter)); // 필터 변경 액션 디스패치
   };
-  
+
   return (
     <div>
       <Typography
@@ -95,25 +95,6 @@ const TodoList = () => {
               >
                 <DeleteIcon fontSize="small" />
               </IconButton>
-              {/* <input
-              type="checkbox"
-              checked={todo.completed}
-              onChange={() => dispatch(toggleTodo(todo.id))}
-            />
-            <span
-              style={{
-                textDecoration: todo.completed ? "line-through" : "none",
-              }}
-            >
-              {todo.text}
-            </span>
-            <IconButton
-              aria-label="delete"
-              size="large"
-              onClick={() => dispatch(removeTodo(todo.id))}
-            >
-              <DeleteIcon fontSize="small" />
-            </IconButton> */}
             </li>
           ))}
         </FormGroup>
