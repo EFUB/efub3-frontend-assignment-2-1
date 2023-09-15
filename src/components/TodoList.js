@@ -1,4 +1,3 @@
-// TodoList.js
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addTodo, toggleTodo, removeTodo } from "../redux/todosSlice";
@@ -39,9 +38,11 @@ const TodoList = () => {
       setNewTodo("");
     }
   };
+
   const handleSetFilter = (filter) => {
     dispatch(setFilter(filter)); // 필터 변경 액션 디스패치
   };
+  
   return (
     <div>
       <Typography

@@ -9,11 +9,6 @@ const filterSlice = createSlice({
       state.filter = action.payload;
     },
   },
-  // extraReducers: (builder) => {
-  //   builder.addCase(anotherAction.type, (state, action) => {
-  //     state.filter = "newFilterValue";
-  //   });
-  // },
 });
 
 export const { setFilter } = filterSlice.actions;

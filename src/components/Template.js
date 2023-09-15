@@ -3,15 +3,8 @@ import { useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Container from "@mui/material/Container";
-import MainComponent from "./MainComponent";
 
 function Template({ content }) {
-  const navigate = useNavigate();
-
-  const handleBtnClick = () => {
-    navigate(`/todo`);
-  };
-
   return (
     <Container maxWidth="sm">
       <Box
