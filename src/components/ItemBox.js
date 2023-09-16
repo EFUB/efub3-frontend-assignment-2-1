@@ -23,7 +23,12 @@ const ItemBox = ({ item, curLikeList }) => {
 
   return (
     <Wrapper>
-      <ItemImage src={item.image} />
+      <div style={{position: "relative"}}>
+        <ItemImage src={item.image} />
+        <CartBtn>
+          <CartIcon src={cart} alt="cart" />
+        </CartBtn>
+      </div>
       <ItemInfo>
         <div>
           <ItemTitle>{item.title}</ItemTitle>
@@ -53,6 +58,23 @@ const Wrapper = styled.div`
 const ItemImage = styled.img`
   width: 100%;
   cursor: pointer;
+`;
+
+const CartBtn = styled.button`
+  border-radius: 3px;
+  padding: 5px;
+  border: 0;
+  filter: drop-shadow(2px 3px 3px gray);
+
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 20px;
+  margin-right: 20px;
+`;
+
+const CartIcon = styled.img`
+  width: 30px;
 `;
 
 const ItemInfo = styled.div`
