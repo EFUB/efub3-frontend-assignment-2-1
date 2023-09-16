@@ -89,7 +89,4 @@ const PickerWrapper = styled.div`
   position: absolute;
   top: 35px;
   right: 155px;
-  //position: relative;
-  //left: -100px;
-  //top: 170px;
 `;
