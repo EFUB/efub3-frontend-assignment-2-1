@@ -39,6 +39,7 @@ const Container = styled.div`
   grid-template-columns: 1fr 1fr;
   column-gap: 10px;
   margin-bottom: 2rem;
+  margin-left: 0.8rem;
 `;
 
 export default ShoppingList;

@@ -53,13 +53,14 @@ const Text = styled.p`
 `;
 
 const Container = styled.div`
-  position: absolute;
+  position: fixed; // 화면 스크롤에 따라 고정
   width: 18rem;
   height: 10rem;
   background-color: white;
   border-radius: 10px;
-  margin-left: 7%;
-  margin-top: 8rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 2;
   border-radius: 8px;
   background: #fff;
