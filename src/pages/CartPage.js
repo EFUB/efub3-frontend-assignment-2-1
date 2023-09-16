@@ -6,12 +6,12 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
 const CartPage = () => {
-  // 좋아요 목록 불러오기
+  // 장바구니 목록 불러오기
   const cartList = useSelector((state) => state.cart);
 
   const [curCartList, setCurCartList] = useState(cartList);
 
-  // 좋아요 목록이 바뀔 때마다 갱신하기
+  // 장바구니 목록이 바뀔 때마다 갱신하기
   useEffect(() => {
     setCurCartList(cartList);
   }, [cartList]);
