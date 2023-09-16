@@ -6,7 +6,7 @@ const asyncUpFetch = createAsyncThunk("counterSlice/asyncUpFetch", async () => {
     const res = await axios.get(
       `https://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=${process.env.REACT_APP_WEATHER_KEY}`
     );
-    console.log(res.data);
+
     return res.data;
   } catch (err) {
     console.log(err);
