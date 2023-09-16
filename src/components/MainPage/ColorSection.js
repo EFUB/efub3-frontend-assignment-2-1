@@ -58,6 +58,7 @@ export default ColorSection;
 const Wrapper = styled.div`
   width: 50%;
   height: 35px;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -85,7 +86,10 @@ const SelectBtn = styled.button`
 
 const PickerWrapper = styled.div`
   z-index: 10;
-  position: relative;
-  left: -100px;
-  top: 170px;
+  position: absolute;
+  top: 35px;
+  right: 155px;
+  //position: relative;
+  //left: -100px;
+  //top: 170px;
 `;
