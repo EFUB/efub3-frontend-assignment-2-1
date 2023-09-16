@@ -2,9 +2,9 @@ import styled from "styled-components";
 import heart from "../assets/ic_heart.png";
 import heart_full from "../assets/ic_heart_red.png";
 import cart from "../assets/ic_cart.png";
-import { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { likeItem, unLikeItem } from "../redux/likeSlice";
+import { addItem } from "../redux/cartSlice";
 
 const ItemBox = ({ item, curLikeList }) => {
   const dispatch = useDispatch();
@@ -16,6 +16,12 @@ const ItemBox = ({ item, curLikeList }) => {
     dispatch(unLikeItem(item.id));
   };
 
+  const handleAddCartItem = () => {
+    // 장바구니에 아이템 추가
+    dispatch(addItem(item));
+    alert(`장바구니에 ${item.title} 상품을 추가했습니다!`);
+  };
+
   // 좋아요 목록에서 해당 아이템이 있는지 확인
   const isLiked = curLikeList.some(
     (likeListItem) => likeListItem.id === item.id
@@ -23,16 +29,16 @@ const ItemBox = ({ item, curLikeList }) => {
 
   return (
     <Wrapper>
-      <div style={{position: "relative"}}>
+      <div style={{ position: "relative" }}>
         <ItemImage src={item.image} />
-        <CartBtn>
+        <CartBtn onClick={handleAddCartItem}>
           <CartIcon src={cart} alt="cart" />
         </CartBtn>
       </div>
       <ItemInfo>
         <div>
           <ItemTitle>{item.title}</ItemTitle>
-          <ItemPrice>{item.price}</ItemPrice>
+          <ItemPrice>{item.price.toLocaleString()}</ItemPrice>
         </div>
         {isLiked ? (
           <img

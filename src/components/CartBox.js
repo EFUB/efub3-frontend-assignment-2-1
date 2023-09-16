@@ -1,29 +1,44 @@
 import styled from "styled-components";
-import { ItemList } from "../item/ItemList";
 import plus from "../assets/ic_plus.png";
 import minus from "../assets/ic_minus.png";
 import close from "../assets/ic_close.png";
+import { useDispatch } from "react-redux";
+import { addItem, deleteItem, subtractItem } from "../redux/cartSlice";
 
-const CartBox = () => {
+const CartBox = ({ item }) => {
+  const dispatch = useDispatch();
+
+  const handleAddItem = () => {
+    dispatch(addItem(item));
+  };
+
+  const handleSubtractItem = () => {
+    dispatch(subtractItem(item));
+  };
+
+  const handleDeleteItem = () => {
+    dispatch(deleteItem(item.id));
+  };
+
   return (
     <Wrapper>
-      <ItemImage src={ItemList[0].image} />
+      <ItemImage src={item.image} />
       <div>
-        <ItemTitle>{ItemList[0].title}</ItemTitle>
-        <ItemPrice>{ItemList[0].price}</ItemPrice>
+        <ItemTitle>{item.title}</ItemTitle>
+        <ItemPrice>{item.price.toLocaleString()}</ItemPrice>
 
         <ItemQuantity>
-          <ItemQuanBtn>
+          <ItemQuanBtn onClick={handleAddItem}>
             <img src={plus} alt="plus" />
           </ItemQuanBtn>
-          <ItemQuanText>1</ItemQuanText>
-          <ItemQuanBtn>
+          <ItemQuanText>{item.quantity}</ItemQuanText>
+          <ItemQuanBtn onClick={handleSubtractItem}>
             <img src={minus} alt="minus" />
           </ItemQuanBtn>
         </ItemQuantity>
       </div>
 
-      <CloseBtn src={close} alt="x" />
+      <CloseBtn src={close} alt="x" onClick={handleDeleteItem} />
     </Wrapper>
   );
 };
@@ -35,7 +50,7 @@ const Wrapper = styled.div`
   align-items: center;
   gap: 20px;
   position: relative;
-  
+
   margin: 10px 0;
 `;
 

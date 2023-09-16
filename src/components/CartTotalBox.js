@@ -1,11 +1,24 @@
 import styled from "styled-components";
 
-const CartTotalBox = () => {
+const CartTotalBox = ({ curCartList }) => {
+  // quantity와 price를 곱한 것의 합을 구하는 함수 - 초기값을 정해주지 않으면 배열의 첫 번째 요소가 초기값이 됨
+  const totalPrice = curCartList.reduce((acc, currentItem) => {
+    // 현재 아이템의 quantity와 price를 추출
+    const { quantity, price } = currentItem;
+
+    // 현재 아이템의 합을 계산하여 누적 합계에 더함
+    return acc + quantity * price;
+  }, 0);
+
   return (
     <Wrapper>
       <TotalDiv>
-        <span>총 <strong>1</strong>건</span>
-        <span><strong>10000</strong>원</span>
+        <span>
+          총 <strong>{curCartList.length}</strong>건
+        </span>
+        <span>
+          <strong>{totalPrice.toLocaleString()}</strong>원
+        </span>
       </TotalDiv>
       <OrderBtn>구매하기</OrderBtn>
     </Wrapper>
