@@ -3,7 +3,7 @@ import './common.css';
 import Landing from './components/Landing';
 import Diary from './components/Diary/Diary';
 import LuckyCat from './components/LuckyCat';
-import store from './components/Redux/store';
+import store from './Redux/store';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { persistStore } from 'redux-persist';
