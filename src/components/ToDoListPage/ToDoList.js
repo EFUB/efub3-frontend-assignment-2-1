@@ -22,7 +22,7 @@ const ToDoList = () => {
             >
               ✔
             </CheckboxBtn>
-            {item.text}
+            <ToDoText>{item.text}</ToDoText>
             <XBtn onClick={() => dispatch(remove(index))}>✖</XBtn>
           </ToDoItem>
         );
@@ -66,8 +66,6 @@ const ToDoItem = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  font-family: "Pretendard-Regular";
-  font-size: 18px;
   border-top: 1px solid #b4b4b4;
 `;
 
@@ -89,6 +87,16 @@ const CheckboxBtn = styled.button`
   &.complete {
     color: rgba(62, 62, 62);
   }
+`;
+
+const ToDoText = styled.div`
+  width: calc(100% - 100px);
+  text-align: center;
+  font-family: "Pretendard-Regular";
+  font-size: 18px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 `;
 
 const XBtn = styled.button`
