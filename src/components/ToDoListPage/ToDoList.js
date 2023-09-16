@@ -22,7 +22,9 @@ const ToDoList = () => {
             >
               ✔
             </CheckboxBtn>
-            <ToDoText>{item.text}</ToDoText>
+            <ToDoText className={toDos[index].isCompleted ? "complete" : ""}>
+              {item.text}
+            </ToDoText>
             <XBtn onClick={() => dispatch(remove(index))}>✖</XBtn>
           </ToDoItem>
         );
@@ -97,6 +99,12 @@ const ToDoText = styled.div`
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+
+  &.complete {
+    color: #6f6f6f;
+    font-style: italic;
+    text-decoration: line-through;
+  }
 `;
 
 const XBtn = styled.button`
