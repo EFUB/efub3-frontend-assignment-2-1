@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import diarySlice from '../Redux/diarySlice';
+import diarySlice from '../../Redux/diarySlice';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import add from '../../assets/add.svg';

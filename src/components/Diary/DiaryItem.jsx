@@ -1,4 +1,4 @@
-import diarySlice from '../Redux/diarySlice';
+import diarySlice from '../../Redux/diarySlice';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { S } from '../common-style';

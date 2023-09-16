@@ -1,8 +1,8 @@
 import { S, Credit } from './common-style';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import { asyncUpFetch } from './Redux/luckyCatSlice';
-import luckyCatSlice from './Redux/luckyCatSlice';
+import { asyncUpFetch } from '../Redux/luckyCatSlice';
+import luckyCatSlice from '../Redux/luckyCatSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 
