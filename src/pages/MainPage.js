@@ -1,13 +1,25 @@
 import styled from "styled-components";
 import ItemBox from "../components/ItemBox";
 import { ItemList } from "../item/ItemList";
+import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 
 const MainPage = () => {
+  // 좋아요 목록 불러오기
+  const likeList = useSelector((state) => state.like);
+
+  const [curLikeList, setCurLikeList] = useState(likeList);
+
+  // 좋아요 목록이 바뀔 때마다 갱신하기
+  useEffect(() => {
+    setCurLikeList(likeList);
+  }, [likeList]);
+
   return (
     <Div>
       <Items>
         {ItemList.map((item) => (
-          <ItemBox item={item} />
+          <ItemBox key={item.id} item={item} curLikeList={curLikeList} />
         ))}
       </Items>
     </Div>
