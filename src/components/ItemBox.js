@@ -26,8 +26,8 @@ const ItemBox = ({ item, curLikeList }) => {
       <ItemImage src={item.image} />
       <ItemInfo>
         <div>
-          <div>{item.title}</div>
-          <div>{item.price}</div>
+          <ItemTitle>{item.title}</ItemTitle>
+          <ItemPrice>{item.price}</ItemPrice>
         </div>
         {isLiked ? (
           <img
@@ -61,4 +61,12 @@ const ItemInfo = styled.div`
   align-items: center;
 
   margin-top: 10px;
+`;
+
+const ItemTitle = styled.div`
+  margin: 10px 0;
+`;
+
+const ItemPrice = styled.div`
+  font-weight: 600;
 `;
