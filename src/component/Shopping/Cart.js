@@ -5,7 +5,10 @@ import React from "react";
 import CartItem from "./CartItem";
 
 const Cart = () => {
+  // 스토어에서 상태 읽어오기
   const items = useSelector((state) => state.shopping.number);
+
+  // 전체 가격 구하기
   const totalPrice = items.reduce(
     (acc, item) => acc + item.price * item.count,
     0

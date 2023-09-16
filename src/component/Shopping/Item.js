@@ -7,8 +7,28 @@ import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
 import { putCart } from "./shoppingSlice";
 
 const Item = ({ name, price, pic, id }) => {
+  // 상품 개수 세는 count state
   const [count, setCount] = useState(0);
+
   const dispatch = useDispatch();
+
+  // 카트 이모지(PutBtn) 클릭 시 putCart 리듀서 호출
+  const handlePutBtnClick = () => {
+    // 상품 개수가 1개 이상일 때만 장바구니에 추가 가능
+    if (count > 0) {
+      const cartItem = {
+        id: id,
+        name: name,
+        price: price,
+        count: count,
+      };
+      dispatch(putCart(cartItem));
+      setCount(0);
+    } else {
+      alert("1개 이상만 장바구니에 담을 수 있어요");
+    }
+  };
+
   return (
     <Div>
       <Pic src={pic}></Pic>
@@ -19,24 +39,7 @@ const Item = ({ name, price, pic, id }) => {
         <p>{count}개</p>
         <PlusBtn onClick={() => setCount(count + 1)}>+</PlusBtn>
       </div>
-      <PutBtn
-        onClick={() => {
-          if (count > 0) {
-            const cartItem = {
-              id: id,
-              name: name,
-              price: price,
-              count: count,
-            };
-            dispatch(putCart(cartItem));
-            setCount(0);
-          } else {
-            alert("1개 이상만 장바구니에 담을 수 있어요");
-          }
-        }}
-      >
-        담기
-      </PutBtn>
+      <PutBtn onClick={handlePutBtnClick}>담기</PutBtn>
     </Div>
   );
 };

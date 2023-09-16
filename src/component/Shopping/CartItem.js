@@ -10,6 +10,7 @@ const CartItem = ({ name, price, count, id }) => {
   return (
     <Div>
       <DeleteBtn
+        // 삭제 버튼 클릭 시 스토어에서 제거 리듀서 호출
         onClick={() => {
           dispatch(removeCart(id));
         }}

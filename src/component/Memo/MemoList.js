@@ -3,7 +3,9 @@ import { useSelector } from "react-redux";
 import MemoItem from "./MemoItem";
 
 const MemoList = () => {
+  // 스토어에서 상태 읽어오기
   const memos = useSelector((state) => state.memo.memos);
+
   return (
     <Div>
       {memos.map((memo) => (

@@ -6,16 +6,21 @@ import { addMemo } from "./memoSlice";
 import { BiSolidPencil } from "react-icons/bi";
 
 const CreateMemo = () => {
+  // 입력값 저장하는 state
   const [text, setText] = useState("");
+
   const dispatch = useDispatch();
 
+  // submit 시 호출되는 함수
   const handleSubmit = (e) => {
     e.preventDefault();
+    // text가 있는 경우에만 리듀서 호출
     if (text) {
       dispatch(addMemo(text));
       setText("");
     }
   };
+
   return (
     <Div>
       <Form onSubmit={handleSubmit}>

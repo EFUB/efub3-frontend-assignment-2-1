@@ -4,6 +4,7 @@ const shoppingSlice = createSlice({
   name: "shopping",
   initialState: { number: [] },
   reducers: {
+    // 카트에 추가하는 리듀서
     putCart: (state, action) => {
       const newItem = action.payload;
       const existingItem = state.number.find((item) => item.id === newItem.id);
@@ -18,6 +19,7 @@ const shoppingSlice = createSlice({
         });
       }
     },
+    // 카트에서 삭제하는 리듀서
     removeCart: (state, action) => {
       const id = action.payload;
       state.number = state.number.filter((item) => item.id !== id);

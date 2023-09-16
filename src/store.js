@@ -24,6 +24,7 @@ const persistedReducer = persistReducer(persistConfig, reducers);
 
 const store = configureStore({
   reducer: persistedReducer,
+  // 오류 발생으로 middleware 설정
   middleware: getDefaultMiddleware({
     serializableCheck: false,
   }),

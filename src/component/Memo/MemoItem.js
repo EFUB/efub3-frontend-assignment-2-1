@@ -11,8 +11,8 @@ const MemoItem = ({ id, memo, date }) => {
   return (
     <Div>
       <DeleteBtn
+        // 삭제 버튼 클릭 시 스토어에서 제거 리듀서 호출
         onClick={() => {
-          console.log("id : ", id);
           dispatch(removeMemo(id));
         }}
       />
