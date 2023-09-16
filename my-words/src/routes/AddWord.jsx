@@ -26,6 +26,7 @@ const AddWord = () => {
     navigate("/");
   };
 
+  // 항목별로 입력을 받아 dispatch 실행
   return (
     <>
       <Container>

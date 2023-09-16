@@ -7,6 +7,7 @@ import Card from "../Card";
 const Home = () => {
   const navigate = useNavigate();
 
+  // 단어 추가 페이지로 이동
   const handleButtonClick = () => {
     navigate("/addWord");
   };

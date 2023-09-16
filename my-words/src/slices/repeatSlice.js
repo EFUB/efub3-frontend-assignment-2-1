@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// 반복횟수 관리
 const repeatSlice = createSlice({
   name: "repeatSlice",
   initialState: {

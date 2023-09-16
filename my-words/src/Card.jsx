@@ -2,13 +2,14 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
 
-import wordSlice from "./slices/wordSlice";
 import { deleteWord } from "./slices/wordSlice";
 import { incrementCount, resetCount } from "./slices/repeatSlice";
 
+// 단어 카드 컴포넌트
 const Card = () => {
   const dispatch = useDispatch();
 
+  // 단어 삭제
   const deleteWordList = (idx) => {
     dispatch(
       deleteWord({
@@ -17,10 +18,12 @@ const Card = () => {
     );
   };
 
+  // 반복횟수 증가
   const addRepeat = () => {
     dispatch(incrementCount(1));
   };
 
+  // 반복횟수 리셋
   const redo = () => {
     dispatch(resetCount());
   };

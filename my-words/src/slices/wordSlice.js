@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// 단어 추가 & 삭제 기능
 const wordSlice = createSlice({
   name: "wordSlice",
   initialState: {
